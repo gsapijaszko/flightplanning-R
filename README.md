@@ -117,7 +117,7 @@ litchi_sf(roi,
 ## Usage
 There are two main functions available:
  * `flight.parameters()`: this will calculate the flight parameters given desired settings for GSD/height, target overlap, flight speed and camera specifications.
- * `litchi.plan()`: it depends on the `flight.parameters()` return object to generate the CSV flight plan ready to import into the Litchi Hub.
+ * `litchi_sf()`: it depends on the `flight.parameters()` return object to generate the CSV flight plan ready to import into the Litchi Hub.
  
 ### flight.parameters
  - `height`: target flight height, default NA
@@ -129,7 +129,7 @@ There are two main functions available:
  - `front.overlap`: desired height overlap between photos, default 0.8
  - `flight.speed.kmh`: flight speed in km/h, default 54.
  
- ### litchi.plan
+ ### litchi_sf
   - `roi`: range of interest loaded as an OGR layer, must be in
 a metric units projection for working properly
  - `output`: output path for the csv file
@@ -200,7 +200,7 @@ exampleBoundary = readOGR(
 output = "output.csv"
 
 # Create the csv plan 
-litchi.plan(exampleBoundary,
+litchi_sf(exampleBoundary,
             output,
             params,
             flight.lines.angle = -1,
