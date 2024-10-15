@@ -1,5 +1,5 @@
 params = flight.parameters(height = 100)
-TOLERANCE = 1e-4
+# TOLERANCE = 1e-4
 
 test_that("Flight parameters must have either gsd or height set up", {
   expect_error( flight.parameters(gsd=NA, height=NA) )
@@ -19,7 +19,7 @@ test_that("GSD calculation from height is correct", {
                              image.width.px = 5472,
                              image.height.px = 3648,
                              flight.speed.kmh = 43.2)
-  expect_equal( params@gsd, 3.289473684210527, tolerance = TOLERANCE )
+  expect_equal( params@gsd, 3.289473684210527, tolerance = 1e-4 )
 })
 
 
@@ -29,7 +29,7 @@ test_that("Height calculation from GSD is correct", {
                              image.width.px = 5472,
                              image.height.px = 3648,
                              flight.speed.kmh = 54)
-  expect_equal( params@height, 152, tolerance = TOLERANCE )
+  expect_equal( params@height, 152, tolerance = 1e-4 )
 })
 
 test_that("Flight parameters front overlap is the same as input", {
@@ -40,7 +40,7 @@ test_that("Flight parameters front overlap is the same as input", {
                              image.height.px = 3648,
                              flight.speed.kmh = 43,
                              front.overlap = front.overlap)
-  expect_equal( params@front.overlap, front.overlap, tolerance = TOLERANCE )
+  expect_equal( params@front.overlap, front.overlap, tolerance = 1e-4 )
 })
 
 
@@ -57,7 +57,7 @@ test_that("Side overlap is correct", {
                              flight.speed.kmh = 43.2,
                              side.overlap = side.overlap)
 
-  expect_equal( params@flight.line.distance, overlap.meters, tolerance = TOLERANCE )
+  expect_equal( params@flight.line.distance, overlap.meters, tolerance = 1e-4 )
 })
 
 
@@ -78,7 +78,7 @@ test_that("Front overlap is correct", {
                              flight.speed.kmh = speed.kmh,
                              front.overlap = front.overlap)
 
-  expect_equal( params@photo.interval, interval, tolerance = TOLERANCE )
+  expect_equal( params@photo.interval, interval, tolerance = 1e-4 )
 })
 
 
@@ -120,7 +120,7 @@ test_that("Ground height is properly calculated", {
                              flight.speed.kmh = 54,
                              front.overlap = 0.5)
 
-  expect_equal( params@ground.height, ground.height, tolerance = TOLERANCE )
+  expect_equal( params@ground.height, ground.height, tolerance = 1e-4 )
 })
 
 

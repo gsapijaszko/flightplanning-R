@@ -15,9 +15,6 @@ Imports:
   graphics,
   grDevices,
   methods,
-  rgdal, 
-  rgeos, 
-  sp,
   shotGroups,
   sf
 Depends: R (>= 3.0)
